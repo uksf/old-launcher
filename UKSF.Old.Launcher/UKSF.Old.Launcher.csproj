@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <Version>1.0.0.811</Version>
+        <Authors>UKSF</Authors>
+        <Copyright>UKSF 2019</Copyright>
+        <AssemblyName>UKSF Launcher</AssemblyName>
+        <StartupObject>UKSF.Old.Launcher.App</StartupObject>
+      <ApplicationIcon>light.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>../Debug/Launcher</OutputPath>
+      <PlatformTarget>x64</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <OutputPath>../Release/Launcher</OutputPath>
+      <PlatformTarget>x64</PlatformTarget>
+        <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\UKSF.Launcher.Network\UKSF.Launcher.Network.csproj" />
+      <ProjectReference Include="..\UKSF.Launcher.Patching\UKSF.Launcher.Patching.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UI\Dialog" />
+      <Folder Include="UI\FTS" />
+      <Folder Include="UI\Login" />
+      <Folder Include="UI\Main" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="light.ico" />
+      <Resource Include="Resources\Icons\Close.png" />
+      <Resource Include="Resources\Icons\CloseH.png" />
+      <Resource Include="Resources\Icons\Minimize.png" />
+      <Resource Include="Resources\Icons\MinimizeH.png" />
+      <Resource Include="Resources\Icons\Settings.png" />
+      <Resource Include="Resources\Icons\SettingsH.png" />
+      <Resource Include="Resources\Icons\SettingsM.png" />
+      <Resource Include="Resources\Icons\uksfbadge.png" />
+      <Resource Include="Resources\Icons\Watermark.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MvvmLight" Version="5.4.1.1" />
+    </ItemGroup>
+
+</Project>

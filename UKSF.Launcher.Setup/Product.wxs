@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define VERSION="1.0.0.0"?>
+
+  <Product Id="*" Name="UKSF Launcher" Language="1033" Version="$(var.VERSION)" Manufacturer="UKSF" UpgradeCode="C7B541EC-5CFD-4CE1-9CA0-B31571D3BE41">
+    <Package Id="*" Description="UKSF Launcher" Manufacturer="UKSF" InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+
+    <Feature Id="ProductFeature" Title="UKSF Launcher" Level="1">
+        
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+
+    <Property Id="ALLUSERS" Secure="yes" Value="2"/>
+    <Property Id="MSIINSTALLPERUSER" Secure="yes" Value="1" />
+    <!--<UIRef Id="WixUI_Minimal" />-->
+
+    <Icon Id="icon" SourceFile="..\UKSF.Launcher\light.ico" />
+    <Property Id="ARPPRODUCTICON" Value="icon" />
+
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\logo.png" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\banner.png" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\licence.rtf" />
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="UKSF Launcher"/>
+        <Directory Id="HeatGenerated"/>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="UKSF Launcher"/>
+      </Directory>
+    </Directory>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="00DCCF15-5D73-4F6E-9DB9-F5CDA7C1545F">
+        <Shortcut Id="UninstallProduct" Name="Uninstall UKSF Launcher" Description="Uninstalls UKSF Launcher" Target="[System64Folder]msiexec.exe" Arguments="/x [ProductCode]"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\UKSF Launcher" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

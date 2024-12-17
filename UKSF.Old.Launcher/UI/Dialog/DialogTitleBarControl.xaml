@@ -1,0 +1,32 @@
+<UserControl x:Class="UKSF.Old.Launcher.UI.Dialog.DialogTitleBarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="36" d:DesignWidth="500">
+    <Grid Height="36" VerticalAlignment="Top" Background="{DynamicResource Uksf.BackgroundDark}"
+          MouseDown="DialogTitleBarControl_MouseDown">
+        <Button x:Name="DialogTitleBarControlButtonClose" Width="36" Click="DialogTitleBarControlButtonClose_Click"
+                HorizontalAlignment="Right" Panel.ZIndex="1" Style="{DynamicResource Uksf.Button}">
+            <Image Width="25" Height="25" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                   RenderOptions.EdgeMode="Aliased">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source"
+                                Value="pack://application:,,,/UKSF Launcher;component/Resources/Icons/Close.png" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source"
+                                        Value="pack://application:,,,/UKSF Launcher;component/Resources/Icons/CloseH.png" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+        </Button>
+        <Label x:Name="DialogTitleBarControlLabel" FontSize="20" FontFamily="Arial"
+               Foreground="{DynamicResource Uksf.Foreground}" Content="Error" VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Left" Width="498" Margin="10,0,0,0" Padding="0,0,0,0" Panel.ZIndex="0" />
+    </Grid>
+</UserControl>

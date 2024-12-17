@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="UKSF.Old.Launcher.UI.Dialog.DialogMainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="214" d:DesignWidth="500">
+    <Grid x:Name="DialogMainControlGrid" Background="{DynamicResource Uksf.Background}">
+        <TextBlock x:Name="DialogMainControlTextBlock" Text="Dialog" FontSize="14" TextWrapping="Wrap"
+                   HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="165" Width="480"
+                   Foreground="{DynamicResource Uksf.Grey}" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="DialogMainControlButtonYes" Content="Yes" Click="DialogMainControlButton_Click"
+                    Margin="0,0,10,10" Style="{DynamicResource Uksf.PaddedButton}" />
+            <Button x:Name="DialogMainControlButtonNo" Content="No" Click="DialogMainControlButton_Click"
+                    Margin="0,0,10,10" Style="{DynamicResource Uksf.PaddedButton}" />
+            <Button x:Name="DialogMainControlButtonOk" Content="OK" Click="DialogMainControlButton_Click"
+                    Margin="0,0,10,10" Style="{DynamicResource Uksf.PaddedButton}" />
+            <Button x:Name="DialogMainControlButtonCancel" Content="Cancel" Click="DialogMainControlButton_Click"
+                    Margin="0,0,10,10" Style="{DynamicResource Uksf.PaddedButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="UKSF.Old.Launcher.UI.Main.HomeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="464" d:DesignWidth="500">
+    <Grid Height="464">
+        <Image Source="pack://application:,,,/UKSF Launcher;component/Resources/Icons/Watermark.png"
+               HorizontalAlignment="Center" Width="464" Height="464" VerticalAlignment="Bottom"
+               RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" Panel.ZIndex="0" />
+        <ComboBox x:Name="HomeControlDropdownServer" IsEnabled="False" Width="375" Height="75" Margin="0,50,0,0"
+                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                  SelectionChanged="HomeControlDropdownServer_Selected"
+                  Panel.ZIndex="2" Style="{DynamicResource Uksf.ComboBoxPlay}" />
+        <Button x:Name="HomeControlButtonPlay" Content="Play" IsEnabled="False" FontSize="50" Width="375"
+                Height="75"
+                Click="HomeControlButtonPlay_Click" Margin="0,50,0,0"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="1"
+                Style="{DynamicResource Uksf.Button}" />
+        <ProgressBar x:Name="HomeControlProgressBar" Value="5" Width="375" Height="10"
+                     Margin="1,175,0,0" SnapsToDevicePixels="True"
+                     Background="{DynamicResource Uksf.BackgroundDark}" Foreground="{DynamicResource Uksf.Foreground}"
+                     BorderBrush="{DynamicResource Uksf.BackgroundLight}" Panel.ZIndex="2" />
+        <Grid Margin="0,330,0,0" VerticalAlignment="Top">
+            <TextBlock x:Name="HomeControlProgressText" Text="" FontSize="14"
+                       FontWeight="Normal" HorizontalAlignment="Center"
+                       TextAlignment="Center" TextWrapping="WrapWithOverflow"
+                       MaxWidth="450" Panel.ZIndex="2"
+                       Style="{DynamicResource Uksf.SettingsTextBlock}" />
+        </Grid>
+        <TextBlock x:Name="HomeControlWarningText" FontSize="24"
+                   FontWeight="Bold" HorizontalAlignment="Center" MaxWidth="450"
+                   VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,0,15"
+                   Foreground="{DynamicResource Uksf.Foreground}" Panel.ZIndex="2"
+                   Style="{DynamicResource Uksf.TextBlock}" />
+        <Button x:Name="HomeControlControllerButton" 
+                Content="Refresh" Margin="0,0,0,5" Padding="0"
+                Click="HomeControlRefreshCancelButton_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                Background="{DynamicResource Uksf.Transparent}"
+                BorderBrush="{DynamicResource Uksf.Transparent}" Panel.ZIndex="2" Style="{DynamicResource Uksf.RefreshButton}" />
+    </Grid>
+</UserControl>

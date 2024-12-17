@@ -1,0 +1,21 @@
+<UserControl x:Class="UKSF.Old.Launcher.UI.General.ProfileSelectionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="25" d:DesignWidth="470">
+    <Grid Width="470">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ProfileSelectionControlDropdownProfile" VerticalAlignment="Top"
+                  SelectionChanged="ProfileSelectionControlDropdownProfile_Selected"
+                  HorizontalAlignment="Stretch" Height="25" Grid.Column="0" Style="{DynamicResource Uksf.ComboBox}" />
+        <Button x:Name="ProfileSelectionControlButtonCopy" Click="ProfileSelectionControlButtonCopy_Click"
+                Content="Copy" VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0"
+                Grid.Column="1"
+                Style="{DynamicResource Uksf.SlimButton}" />
+    </Grid>
+</UserControl>

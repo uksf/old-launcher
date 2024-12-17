@@ -1,0 +1,41 @@
+<UserControl x:Class="UKSF.Old.Launcher.UI.FTS.FtsMainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fts="clr-namespace:UKSF.Old.Launcher.UI.FTS"
+             mc:Ignorable="d"
+             d:DesignHeight="314" d:DesignWidth="500">
+    <Grid Margin="5">
+        <Border VerticalAlignment="Stretch" Margin="0,0,0,30" Style="{DynamicResource Uksf.ContainerBorder}">
+            <StackPanel>
+                <Label x:Name="FtsMainControlTitle" Content="Game Executable" FontSize="24"
+                       Style="{DynamicResource Uksf.SettingsLabel}" />
+                <TextBlock x:Name="FtsMainControlDescription" MinHeight="130" FontSize="14"
+                           Style="{DynamicResource Uksf.TextBlock}" />
+                <Grid Margin="5">
+                    <TextBlock x:Name="FtsMainControlWarningText" Text="Warning" FontWeight="Bold" FontSize="14"
+                               Padding="2,2,2,2" Height="20"
+                               Foreground="{DynamicResource Uksf.Foreground}" Style="{DynamicResource Uksf.TextBlock}" />
+                    <Grid Height="25">
+                        <fts:FtsGameExeControl x:Name="FtsGameExeControl" />
+                        <fts:FtsModLocationControl x:Name="FtsModLocationControl" Visibility="Collapsed" />
+                        <fts:FtsProfileControl x:Name="FtsProfileControl" Visibility="Collapsed" />
+                    </Grid>
+                    <Label Content="You will be able to change this later" Margin="0,45,0,0"
+                           Style="{DynamicResource Uksf.SettingsLabel}" />
+                </Grid>
+            </StackPanel>
+        </Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Content="Back" x:Name="FtsMainControlButtonBack" Click="FTSMainControlButtonProgress_Click"
+                    Margin="5,0,0,0" Visibility="Collapsed" Style="{DynamicResource Uksf.SlimButton}" />
+            <Button Content="Cancel" x:Name="FtsMainControlButtonCancel" Click="FTSMainControlButtonCancel_Click"
+                    Margin="5,0,0,0" Style="{DynamicResource Uksf.SlimButton}" />
+            <Button Content="Next" x:Name="FtsMainControlButtonNext" Click="FTSMainControlButtonProgress_Click"
+                    Margin="5,0,0,0" Style="{DynamicResource Uksf.SlimButton}" />
+            <Button Content="Finish" x:Name="FtsMainControlButtonFinish" Click="FTSMainControlButtonFinish_Click"
+                    Margin="5,0,0,0" Visibility="Collapsed" Style="{DynamicResource Uksf.SlimButton}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,117 @@
+<UserControl x:Class="UKSF.Old.Launcher.UI.Main.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:general="clr-namespace:UKSF.Old.Launcher.UI.General"
+             mc:Ignorable="d"
+             d:DesignHeight="464" d:DesignWidth="500">
+    <Grid Margin="0,0,0,0">
+        <Image Source="pack://application:,,,/UKSF Launcher;component/Resources/Icons/SettingsM.png"
+               HorizontalAlignment="Center" Width="428" Height="428" VerticalAlignment="Bottom"
+               RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" Panel.ZIndex="0" />
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Width="480">
+                <Border Height="50" Style="{DynamicResource Uksf.ContainerBorder}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Game Executable" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                            <TextBlock x:Name="SettingsControlGameExeWarningText" Text="" Margin="10,0,0,0"
+                           Foreground="{DynamicResource Uksf.Foreground}" Style="{DynamicResource Uksf.SettingsTextBlock}" />
+                        </StackPanel>
+                        <general:LocationTextboxControl x:Name="SettingsControlGameExeTextboxControl"
+                                                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                    </Grid>
+                </Border>
+                <Border Height="50" Style="{DynamicResource Uksf.ContainerBorder}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Mod Download Location" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                            <TextBlock x:Name="SettingsControlDownloadWarningText" Text="" Margin="10,0,0,0"
+                           Foreground="{DynamicResource Uksf.Foreground}" Style="{DynamicResource Uksf.SettingsTextBlock}" />
+                        </StackPanel>
+                        <general:LocationTextboxControl x:Name="SettingsControlDownloadTextboxControl"
+                                                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                    </Grid>
+                </Border>
+                <Border Height="50" Style="{DynamicResource Uksf.ContainerBorder}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Profile" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                            <TextBlock x:Name="SettingsControlProfileWarningText" Text="" Margin="10,0,0,0"
+                                   Foreground="{DynamicResource Uksf.Foreground}"
+                                   Style="{DynamicResource Uksf.SettingsTextBlock}" />
+                        </StackPanel>
+                        <general:ProfileSelectionControl x:Name="SettingsControlDropdownProfileSelectionControl"
+                                                     HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                    </Grid>
+                </Border>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <Border Style="{DynamicResource Uksf.ContainerBorder}">
+                            <StackPanel>
+                                <Label Content="Startup Parameters" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                                <Grid VerticalAlignment="Stretch">
+                                    <StackPanel>
+                                        <CheckBox Content="No Splash Screen" Margin="2"
+                                              x:Name="SettingsControlCheckboxSplash"
+                                              Click="SettingsControlCheckbox_Click"
+                                              Style="{DynamicResource Uksf.CheckBox}" />
+                                        <CheckBox Content="Show Script Errors" Margin="2"
+                                              x:Name="SettingsControlCheckboxScript"
+                                              Click="SettingsControlCheckbox_Click"
+                                              Style="{DynamicResource Uksf.CheckBox}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border VerticalAlignment="Stretch" Style="{DynamicResource Uksf.ContainerBorder}">
+                            <StackPanel>
+                                <Label Content="Memory Allocator" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                                <Grid VerticalAlignment="Stretch">
+                                    <StackPanel>
+                                        <CheckBox Content="Huge Pages" Margin="2"
+                                              x:Name="SettingsControlCheckboxPages"
+                                              Click="SettingsControlCheckbox_Click"
+                                              Style="{DynamicResource Uksf.CheckBox}" />
+                                        <ComboBox Margin="2" Height="25" x:Name="SettingsGameControlDropdownMalloc"
+                                              SelectionChanged="SettingsLauncherControlMalloc_Update"
+                                              Style="{DynamicResource Uksf.ComboBox}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="SettingsControlDevControl" Style="{DynamicResource Uksf.ContainerBorder}" IsEnabled="False">
+                            <StackPanel>
+                                <Label Content="Dev Parameters" Height="18" Style="{DynamicResource Uksf.SettingsLabel}" />
+                                <Grid VerticalAlignment="Stretch">
+                                    <StackPanel>
+                                        <CheckBox Content="File Patching" Margin="2"
+                                              x:Name="SettingsControlCheckboxPatching"
+                                              Click="SettingsControlCheckbox_Click"
+                                              Style="{DynamicResource Uksf.CheckBox}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Label x:Name="SettingsControlVersion" Content="Version: 1.0.0.0" HorizontalAlignment="Left"
+                   Foreground="{DynamicResource Uksf.Foreground}" Style="{DynamicResource Uksf.SettingsLabel}" />
+                <CheckBox x:Name="SettingsControlCheckboxAutoupdateLauncher" Content="Auto-update Launcher" FontSize="12"
+                      Click="SettingsControlCheckBoxAutoupdateLauncher_Click" HorizontalAlignment="Right"
+                      Style="{DynamicResource Uksf.CheckBox}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
